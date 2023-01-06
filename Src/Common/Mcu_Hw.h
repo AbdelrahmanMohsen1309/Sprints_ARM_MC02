@@ -24,8 +24,7 @@ typedef struct
     uint32 VECACT   :8;
     uint32          :3;
     uint32 RETBASE  :1;
-    uint32 VECPEND  :3;
-    uint32 VECPEND  :4;
+    uint32 VECPEND  :7;
     uint32          :2;
     uint32 ISRPEND  :1;
     uint32 ISRPRE   :1;
@@ -51,6 +50,9 @@ typedef union
 #define CORTEXM4_PERI_BASE_ADDRESS             0xE000E000
 #define APINT                                  *((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD0C))
 #define INTCTRL                                *((volatile INTCTRL_Tag*)(CORTEXM4_PERI_BASE_ADDRESS+0xD04))
+#define VECTKEY 16 
+#define ENDIANESS 15
+#define PRIGROUP 8
 
 /**********************************************************************************************************************
  *  GLOBAL DATA PROTOTYPES
